@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn02iteagwblf"]
+
+[ext_resource type="PackedScene" uid="uid://bwgcwaaxqoscw" path="res://Scenes/Characters/basic_npc.tscn" id="1_0iu1l"]
+[ext_resource type="Script" uid="uid://bu4tdbab4u32f" path="res://Scenes/Characters/new_npc.gd" id="2_231o1"]
+
+[node name="NewNPC" instance=ExtResource("1_0iu1l")]
+script = ExtResource("2_231o1")

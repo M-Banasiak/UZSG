@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg01yecxpxkp0"]
+
+[ext_resource type="Script" uid="uid://cncoibvbyenc" path="res://Scripts/main_menu_ui.gd" id="1_m1gix"]
+[ext_resource type="Theme" uid="uid://3f0yim1o87rb" path="res://Themes/ui_menu_theme.tres" id="1_ugr05"]
+[ext_resource type="PackedScene" uid="uid://b51k5pu47ayys" path="res://Scenes/UI/btn_with_base_tooltip.tscn" id="3_1ehe0"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_m1gix")
+
+[node name="BackGround" type="ColorRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.458824)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.287, 0.33005, 0.35, 1)
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.65
+anchor_right = 0.92
+anchor_bottom = 1.0
+
+[node name="MenuItems" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.35
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("1_ugr05")
+
+[node name="BtnNew" parent="MainMenu/MenuItems" instance=ExtResource("3_1ehe0")]
+layout_mode = 2
+tooltip_text = "Rozpocznij nową rozgrywkę"
+focus_neighbor_top = NodePath("")
+text = "Nowa gra"
+
+[node name="BtnContinue" parent="MainMenu/MenuItems" instance=ExtResource("3_1ehe0")]
+layout_mode = 2
+tooltip_text = "Wczytaj najnowszy zapis"
+focus_neighbor_top = NodePath("")
+text = "Kontynuuj"
+
+[node name="BtnSave" parent="MainMenu/MenuItems" instance=ExtResource("3_1ehe0")]
+layout_mode = 2
+tooltip_text = "Zapisz rozgrywkę"
+focus_neighbor_top = NodePath("")
+text = "Zapisz"
+
+[node name="BtnLoad" parent="MainMenu/MenuItems" instance=ExtResource("3_1ehe0")]
+layout_mode = 2
+tooltip_text = "Wczytaj zapisaną rozgrywkę"
+focus_neighbor_top = NodePath("")
+text = "Wczytaj"
+
+[node name="BtnOptions" parent="MainMenu/MenuItems" instance=ExtResource("3_1ehe0")]
+layout_mode = 2
+tooltip_text = "Zmień ustawienia gry"
+focus_neighbor_top = NodePath("")
+text = "Opcje"
+
+[node name="BtnQuit" parent="MainMenu/MenuItems" instance=ExtResource("3_1ehe0")]
+layout_mode = 2
+tooltip_text = "Zamknij grę"
+focus_neighbor_top = NodePath("")
+text = "Wyjdź"
+
+[connection signal="mainmenu_game_quit" from="." to="." method="_on_mainmenu_game_quit"]
+[connection signal="mainmenu_new_game" from="." to="." method="_on_mainmenu_new_game"]
+[connection signal="pressed" from="MainMenu/MenuItems/BtnNew" to="." method="_on_btn_new_pressed"]
+[connection signal="pressed" from="MainMenu/MenuItems/BtnQuit" to="." method="_on_btn_quit_pressed"]

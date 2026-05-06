@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd42styse2oet"]
+
+[ext_resource type="Script" uid="uid://bi7w1p0ijmeqe" path="res://Scenes/UI/level_ui.gd" id="1_pkx18"]
+[ext_resource type="Theme" uid="uid://kc7k5yag5nmg" path="res://Themes/btn_with_base_tooltip.tres" id="1_xjiw8"]
+
+[node name="LevelUI" type="CanvasLayer"]
+script = ExtResource("1_pkx18")
+
+[node name="ScoreCounter" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScoreCounter"]
+layout_mode = 1
+offset_right = 380.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ScoreCounter/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_xjiw8")
+text = "Uratowani pracownicy: 0000"

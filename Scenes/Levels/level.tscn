@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://b2p8tiyrok3xh"]
+
+[ext_resource type="Script" uid="uid://h2ionb8t4rqi" path="res://Scenes/Levels/level.gd" id="1_yjxcc"]
+[ext_resource type="PackedScene" uid="uid://bg01yecxpxkp0" path="res://Scenes/main_menu.tscn" id="2_7x7pb"]
+[ext_resource type="PackedScene" uid="uid://d4kfk2w78bf3b" path="res://Scenes/Characters/player.tscn" id="4_lkqqh"]
+[ext_resource type="PackedScene" uid="uid://c7cpais75amkm" path="res://Scenes/Buildings/nuclear_power_plant.tscn" id="4_tq1so"]
+[ext_resource type="PackedScene" uid="uid://cd42styse2oet" path="res://Scenes/UI/level_ui.tscn" id="6_lhx7y"]
+[ext_resource type="PackedScene" uid="uid://c6v13cppk5nx3" path="res://Scenes/SystemObjects/npc_spawner.tscn" id="6_rv5g2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rv5g2"]
+size = Vector2(658, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhx7y"]
+size = Vector2(10, 385)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5435"]
+size = Vector2(10, 400)
+
+[node name="Level" type="Node2D" unique_id=361226738 node_paths=PackedStringArray("Menu", "spawned_scenes")]
+script = ExtResource("1_yjxcc")
+Menu = NodePath("MainMenu")
+spawned_scenes = [null]
+
+[node name="MainMenu" parent="." unique_id=1034547045 instance=ExtResource("2_7x7pb")]
+visible = false
+
+[node name="Projectiles" type="Node2D" parent="." unique_id=903870659]
+
+[node name="Player" parent="." unique_id=237422106 instance=ExtResource("4_lkqqh")]
+position = Vector2(122, 164)
+
+[node name="ActiveObjects" type="Node2D" parent="." unique_id=1660247113]
+
+[node name="NuclearPowerPlant" parent="ActiveObjects" unique_id=1628265466 instance=ExtResource("4_tq1so")]
+position = Vector2(300, 150)
+collision_mask = 8
+
+[node name="RazemGuys" type="Node2D" parent="." unique_id=1344948086]
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1464449276]
+
+[node name="Spawners" type="Node2D" parent="." unique_id=1374506899]
+
+[node name="RazemSpawner" parent="Spawners" unique_id=870884050 instance=ExtResource("6_rv5g2")]
+available_factions = Array[int]([0])
+base_delay = 2.5
+
+[node name="EnemySpawner" parent="Spawners" unique_id=273030372 instance=ExtResource("6_rv5g2")]
+available_factions = Array[int]([1])
+base_delay = 3.0
+timer_mode = 1
+
+[node name="NaziolSpawner" parent="Spawners" unique_id=1742664447 instance=ExtResource("6_rv5g2")]
+available_factions = Array[int]([2])
+base_delay = 4.0
+timer_mode = 2
+
+[node name="LevelWalls" type="Node2D" parent="." unique_id=371447335]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LevelWalls" unique_id=606461453]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/StaticBody2D" unique_id=580378852]
+position = Vector2(320, -14)
+shape = SubResource("RectangleShape2D_rv5g2")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="LevelWalls" unique_id=1856936416]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/StaticBody2D2" unique_id=977215305]
+position = Vector2(320, 374)
+shape = SubResource("RectangleShape2D_rv5g2")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="LevelWalls" unique_id=665570968]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/StaticBody2D3" unique_id=1448195059]
+position = Vector2(-14, 180)
+shape = SubResource("RectangleShape2D_lhx7y")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="LevelWalls" unique_id=1374254018]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/StaticBody2D4" unique_id=171813082]
+position = Vector2(654, 180)
+shape = SubResource("RectangleShape2D_i5435")
+
+[node name="LevelUI" parent="." unique_id=140365245 instance=ExtResource("6_lhx7y")]
+
+[connection signal="gun_fired" from="Player" to="." method="_on_player_gun_fired"]

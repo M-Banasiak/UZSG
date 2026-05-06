@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b51k5pu47ayys"]
+
+[ext_resource type="Script" uid="uid://c0cscc5f83j60" path="res://Scripts/button_script.gd" id="1_ebuyb"]
+[ext_resource type="Theme" uid="uid://kc7k5yag5nmg" path="res://Themes/btn_with_base_tooltip.tres" id="1_vcw0n"]
+
+[node name="BtnWithTooltip" type="Button"]
+tooltip_text = "ExampleTooltip"
+focus_neighbor_top = NodePath("../BtnOptions")
+theme = ExtResource("1_vcw0n")
+text = "ExampleText"
+script = ExtResource("1_ebuyb")

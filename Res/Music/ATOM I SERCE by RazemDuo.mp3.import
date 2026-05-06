@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ca67pu1l45n5c"
+path="res://.godot/imported/ATOM I SERCE by RazemDuo.mp3-9a5a9f6e886ebd7c54844170a7a7ab85.mp3str"
+
+[deps]
+
+source_file="res://Res/Music/ATOM I SERCE by RazemDuo.mp3"
+dest_files=["res://.godot/imported/ATOM I SERCE by RazemDuo.mp3-9a5a9f6e886ebd7c54844170a7a7ab85.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

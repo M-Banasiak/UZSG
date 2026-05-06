@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://gfb6gcrvmmcm"]
+
+[ext_resource type="PackedScene" uid="uid://bwgcwaaxqoscw" path="res://Scenes/Characters/basic_npc.tscn" id="1_kyt7a"]
+[ext_resource type="Script" uid="uid://bhjslu53orh7a" path="res://Scenes/Characters/razemek.gd" id="2_17vj3"]
+
+[node name="Razemek" groups=["Razemki"] instance=ExtResource("1_kyt7a")]
+script = ExtResource("2_17vj3")
+patrol_speed = 30
+attack_speed = 30

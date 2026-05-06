@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://3f0yim1o87rb"]
+
+[ext_resource type="FontFile" uid="uid://dgwsetu63c80a" path="res://Res/Graphics/Fonts/MxPlus_HP_100LX_6x8.ttf" id="1_xaid0"]
+
+[resource]
+default_font = ExtResource("1_xaid0")
+default_font_size = 8

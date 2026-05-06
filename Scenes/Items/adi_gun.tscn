@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7y1fqra6oai"]
+
+[ext_resource type="PackedScene" uid="uid://kpx5bnir5462" path="res://Scenes/Items/common_gun.tscn" id="1_kob6m"]
+[ext_resource type="Texture2D" uid="uid://yun47pto4c87" path="res://Res/Graphics/Items/AdiGun.png" id="2_615vv"]
+
+[node name="AdiGun" instance=ExtResource("1_kob6m")]
+scale = Vector2(1.2, 1.2)
+damage = 200
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_615vv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+visible = false
+polygon = PackedVector2Array(-11, -7, -11, -4, -18, -4, -18, -3, -21, -3, -21, -4, -22, -4, -22, -5, -23, -5, -23, -6, -32, -6, -32, 8, -28, 8, -28, 7, -26, 7, -26, 6, -25, 6, -25, 5, -23, 5, -23, 4, -22, 4, -22, 3, -21, 3, -21, 2, -18, 2, -18, 3, 4, 3, 4, 2, 5, 2, 5, 1, 6, 1, 6, 0, 7, 0, 7, -1, 28, -1, 28, -2, 32, -2, 32, -4, 31, -4, 31, -6, 30, -6, 30, -4, -8, -4, -8, -5, -9, -5, -9, -6, -10, -6, -10, -7)
+disabled = true
+
+[node name="BulletOrigin" parent="." index="2"]
+position = Vector2(32, -3)

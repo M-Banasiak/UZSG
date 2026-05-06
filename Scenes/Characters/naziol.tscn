@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg2rj1l5210hf"]
+
+[ext_resource type="PackedScene" uid="uid://bwgcwaaxqoscw" path="res://Scenes/Characters/basic_npc.tscn" id="1_g8f5r"]
+[ext_resource type="Texture2D" uid="uid://dwlp1jsx1fs4t" path="res://Res/Graphics/Characters/Naziol.png" id="2_4ysr3"]
+[ext_resource type="Script" uid="uid://bt83mwtqql6j" path="res://Scenes/Characters/naziol.gd" id="2_6kw0j"]
+
+[node name="Naziol" instance=ExtResource("1_g8f5r")]
+script = ExtResource("2_6kw0j")
+faction = 2
+patrol_speed = 30
+attack_speed = 70
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_4ysr3")
+
+[connection signal="body_entered" from="NotifyNPCArea" to="." method="_on_notify_npc_area_body_entered"]

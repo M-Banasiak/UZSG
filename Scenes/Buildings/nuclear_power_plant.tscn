@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7cpais75amkm"]
+
+[ext_resource type="Script" uid="uid://cfd3id1q2xp2" path="res://Scenes/Buildings/nuclear_power_plant.gd" id="1_2bxyg"]
+[ext_resource type="Texture2D" uid="uid://ypilsfhvdild" path="res://Res/Graphics/Buildings/NuclearPP.png" id="2_2bxyg"]
+
+[node name="NuclearPowerPlant" type="StaticBody2D"]
+collision_layer = 8
+script = ExtResource("1_2bxyg")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_2bxyg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-29, -24, -53, -24, -53, -23, -53.7, -21, -54.8, -21, -56.8, -11, -57.9, -11, -59, -3.1000004, -59, 1.7000008, -64, 20.099998, -64, 24, 64, 24, 64, -8, -24.3, -8, -27, -16, -27, -20.3, -29, -23.3)
