@@ -35,18 +35,19 @@ func _process(_delta: float) -> void:
 	#if Input.is_action_pressed("close_current_menu"):
 	#	Menu.visible = not Menu.visible
 		
-func _on_player_gun_fired(bullet_data: Array[Vector2]) -> void:
+func _on_player_gun_fired(bullet_data: Dictionary ) -> void:  #Array[Vector2]
 	create_bullet(bullet_data)
 	
-func create_bullet(bullet_data: Array[Vector2]) -> void:  #bullet_data zamienić na dictionary albo inner class
+func create_bullet(bullet_data: Dictionary) -> void:  #bullet_data zamienić na dictionary albo inner class
 	var bullet: Area2D = bullet_scene.instantiate()
-	bullet.position = bullet_data[0]
-	bullet.rotation_degrees = rad_to_deg(bullet_data[1].angle()) + 0   #zamiast robić to przeliczenie mogę od razu przekazywać kąt 
-	bullet.direction = bullet_data[1]
+	bullet.position = bullet_data[DictConsts.HitData.htStartPos]  #bullet_data[0]
+	bullet.rotation_degrees = rad_to_deg(bullet_data[DictConsts.HitData.htDirection].angle()) + 0   #zamiast robić to przeliczenie mogę od razu przekazywać kąt 
+	bullet.direction = bullet_data[DictConsts.HitData.htDirection]
 	bullet.my_shooter = $Player
+	bullet.hit_info = bullet_data
 	$Projectiles.add_child(bullet)
 	
-func _on_create_character(pos: Vector2, faction: CurrentGameState.Factions) -> void:
+func _on_create_character(pos: Vector2, faction: DictConsts.Factions) -> void:
 	match faction:
 		CurrentGameState.Factions.fcRazemki:
 			var new_npc: Razemek = razem_guy.instantiate()

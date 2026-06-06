@@ -1,7 +1,5 @@
 extends Node
 
-enum Factions {fcRazemki, fcLibki, fcNaziole, fcKlechy, fcPlayer}
-
 signal  score_change
 
 var score: int = 0:

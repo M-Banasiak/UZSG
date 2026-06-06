@@ -10,7 +10,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 	
-func npc_collided(faction: CurrentGameState.Factions) -> void:
-	if faction == CurrentGameState.Factions.fcRazemki:
+func npc_collided(faction: DictConsts.Factions) -> void:
+	if faction == DictConsts.Factions.fcRazemki:
 		CurrentGameState.score += 1
 		

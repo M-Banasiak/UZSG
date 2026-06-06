@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://kpx5bnir5462"]
+[gd_scene format=3 uid="uid://kpx5bnir5462"]
 
 [ext_resource type="Script" uid="uid://cm26h8rxy7nx4" path="res://Scenes/Items/common_gun.gd" id="1_i73nj"]
 
-[node name="CommonGun" type="StaticBody2D"]
+[node name="CommonGun" type="StaticBody2D" unique_id=1716877310]
 script = ExtResource("1_i73nj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1360815120]
 
-[node name="BulletOrigin" type="Marker2D" parent="."]
+[node name="BulletOrigin" type="Marker2D" parent="." unique_id=938114860]

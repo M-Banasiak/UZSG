@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwgcwaaxqoscw"]
+[gd_scene format=3 uid="uid://bwgcwaaxqoscw"]
 
 [ext_resource type="Script" uid="uid://ck7yt8bp7lt4m" path="res://Scenes/Characters/basic_npc.gd" id="1_8pcn5"]
 [ext_resource type="Texture2D" uid="uid://bdnwax7036nfo" path="res://Res/Graphics/Characters/Razemek.png" id="2_par3a"]
@@ -6,23 +6,24 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_8pcn5"]
 radius = 200.0
 
-[node name="BasicNPC" type="CharacterBody2D"]
+[node name="BasicNPC" type="CharacterBody2D" unique_id=415055970]
 collision_mask = 9
 script = ExtResource("1_8pcn5")
+faction = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=526665178]
 texture = ExtResource("2_par3a")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1826469892]
 polygon = PackedVector2Array(-1, -8, -1, -7, -2, -7, -2, -6, -3, -6, -3, -5, -4, -5, -4, 8, -2, 8, -2, 5, 2, 5, 2, 8, 4, 8, 4, -5, 3, -5, 3, -6, 2, -6, 2, -7, 1, -7, 1, -8)
 
-[node name="ActionTimer" type="Timer" parent="."]
+[node name="ActionTimer" type="Timer" parent="." unique_id=1241394932]
 wait_time = 5.0
 one_shot = true
 
-[node name="NotifyNPCArea" type="Area2D" parent="."]
+[node name="NotifyNPCArea" type="Area2D" parent="." unique_id=2031718861]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NotifyNPCArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NotifyNPCArea" unique_id=215186463]
 shape = SubResource("CircleShape2D_8pcn5")
 
 [connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

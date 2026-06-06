@@ -3,7 +3,7 @@ extends Marker2D
 enum Sides {sLeft, sRight, sBottom, sTop}
 enum RespawnTimerMode {rtInc, rtDec, rtNone}
 
-@export var available_factions: Array[CurrentGameState.Factions]
+@export var available_factions: Array[DictConsts.Factions]
 @export var base_delay: float = 5
 @export var auto_spawn: bool = true
 @export var timer_mode: RespawnTimerMode
@@ -11,7 +11,7 @@ enum RespawnTimerMode {rtInc, rtDec, rtNone}
 var seconds_delay: float
 #var razem_guy: PackedScene = preload("res://Scenes/Characters/razemek.tscn")
 
-signal character_spawned(pos: Vector2, type: CurrentGameState.Factions)
+signal character_spawned(pos: Vector2, type: DictConsts.Factions)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -66,7 +66,7 @@ func spawn_screenedge() -> void:
 	elif  side == Sides.sRight:
 		spawn_pos = Vector2(randi_range(0, w), h + 1)
 		
-	var faction: CurrentGameState.Factions = available_factions[randi() % available_factions.size()]
+	var faction: DictConsts.Factions = available_factions[randi() % available_factions.size()]
 	character_spawned.emit(spawn_pos, faction)
 #to ma być na level a spawner ma emitować signal przekazując global position i node2d do pokazania
 #func _ready() -> void:

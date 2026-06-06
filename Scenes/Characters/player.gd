@@ -6,7 +6,7 @@ enum eDirection {ldLeft, ldRight}
 var speed: int = max_speed
 var look_direction
 
-signal  gun_fired(bullet_data: Array[Vector2])  #0 - position, 1 - direction (zmienić na Dictionary albo inner class)
+signal  gun_fired(bullet_data: Dictionary) #Array[Vector2])  #0 - position, 1 - direction (zmienić na Dictionary albo inner class)
 
 func _ready() -> void:
 	look_direction = eDirection.ldRight
@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 	
 	#action_pressed/just_pressed uzależniamy od tego czy auto, czy single	
 	if Input.is_action_just_pressed("shoot_primary"):
-		var bullet_data: Array[Vector2]
+		var bullet_data: Dictionary #Array[Vector2]
 		if "fire_single" in $Weapons/AdiGun:
 			bullet_data = $Weapons/AdiGun.fire_single()
 		#teraz jest tak bo zmiana kierunku patrzenia odbywa się przez zmianę scale
@@ -40,3 +40,9 @@ func _process(_delta: float) -> void:
 		if look_direction == eDirection.ldLeft:
 			bullet_data[1].x *= -1
 		gun_fired.emit(bullet_data)
+
+func get_faction() -> DictConsts.Factions:
+	return DictConsts.Factions.fcPlayer
+	
+func is_player() -> bool:
+	return true

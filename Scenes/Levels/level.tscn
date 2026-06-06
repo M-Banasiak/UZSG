@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bg01yecxpxkp0" path="res://Scenes/main_menu.tscn" id="2_7x7pb"]
 [ext_resource type="PackedScene" uid="uid://d4kfk2w78bf3b" path="res://Scenes/Characters/player.tscn" id="4_lkqqh"]
 [ext_resource type="PackedScene" uid="uid://c7cpais75amkm" path="res://Scenes/Buildings/nuclear_power_plant.tscn" id="4_tq1so"]
+[ext_resource type="PackedScene" uid="uid://dg2rj1l5210hf" path="res://Scenes/Characters/naziol.tscn" id="5_lhx7y"]
+[ext_resource type="PackedScene" uid="uid://c33e00rbut1i7" path="res://Scenes/Characters/libek.tscn" id="6_i5435"]
 [ext_resource type="PackedScene" uid="uid://cd42styse2oet" path="res://Scenes/UI/level_ui.tscn" id="6_lhx7y"]
 [ext_resource type="PackedScene" uid="uid://c6v13cppk5nx3" path="res://Scenes/SystemObjects/npc_spawner.tscn" id="6_rv5g2"]
 
@@ -39,53 +41,64 @@ collision_mask = 8
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1464449276]
 
+[node name="Naziol" parent="Enemies" unique_id=1716633300 instance=ExtResource("5_lhx7y")]
+position = Vector2(150, 150)
+
+[node name="Libek" parent="Enemies" unique_id=212818524 instance=ExtResource("6_i5435")]
+position = Vector2(150, 200)
+patrol_speed = 0
+attack_speed = 0
+
 [node name="Spawners" type="Node2D" parent="." unique_id=1374506899]
 
 [node name="RazemSpawner" parent="Spawners" unique_id=870884050 instance=ExtResource("6_rv5g2")]
 available_factions = Array[int]([0])
 base_delay = 2.5
+auto_spawn = false
 
 [node name="EnemySpawner" parent="Spawners" unique_id=273030372 instance=ExtResource("6_rv5g2")]
 available_factions = Array[int]([1])
 base_delay = 3.0
+auto_spawn = false
 timer_mode = 1
 
 [node name="NaziolSpawner" parent="Spawners" unique_id=1742664447 instance=ExtResource("6_rv5g2")]
 available_factions = Array[int]([2])
 base_delay = 4.0
+auto_spawn = false
 timer_mode = 2
 
 [node name="LevelWalls" type="Node2D" parent="." unique_id=371447335]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="LevelWalls" unique_id=606461453]
+[node name="Wall1" type="StaticBody2D" parent="LevelWalls" unique_id=606461453]
 collision_layer = 8
 collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/StaticBody2D" unique_id=580378852]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/Wall1" unique_id=580378852]
 position = Vector2(320, -14)
 shape = SubResource("RectangleShape2D_rv5g2")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="LevelWalls" unique_id=1856936416]
+[node name="Wall2" type="StaticBody2D" parent="LevelWalls" unique_id=1856936416]
 collision_layer = 8
 collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/StaticBody2D2" unique_id=977215305]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/Wall2" unique_id=977215305]
 position = Vector2(320, 374)
 shape = SubResource("RectangleShape2D_rv5g2")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="LevelWalls" unique_id=665570968]
+[node name="Wall3" type="StaticBody2D" parent="LevelWalls" unique_id=665570968]
 collision_layer = 8
 collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/StaticBody2D3" unique_id=1448195059]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/Wall3" unique_id=1448195059]
 position = Vector2(-14, 180)
 shape = SubResource("RectangleShape2D_lhx7y")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="LevelWalls" unique_id=1374254018]
+[node name="Wall4" type="StaticBody2D" parent="LevelWalls" unique_id=1374254018]
 collision_layer = 8
 collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/StaticBody2D4" unique_id=171813082]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/Wall4" unique_id=171813082]
 position = Vector2(654, 180)
 shape = SubResource("RectangleShape2D_i5435")
 

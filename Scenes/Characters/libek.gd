@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 		var collision = get_last_slide_collision()
 		if collision.get_collider():
 			var body: Node2D = collision.get_collider()
-			var fac: CurrentGameState.Factions
+			var fac: DictConsts.Factions
 			if "get_faction" in body:		
 				fac = body.get_faction()		
 			if "hit" in body && fac == CurrentGameState.Factions.fcRazemki:
@@ -25,10 +25,9 @@ func hit(_body: Node2D) -> void:
 
 
 func _on_notify_npc_area_body_entered(body: Node2D) -> void:
-	
 	if ("get_faction" in body) && (curr_target == null):
-		var fac: CurrentGameState.Factions = body.get_faction()
+		var fac: DictConsts.Factions = body.get_faction()
 		match fac:
-			CurrentGameState.Factions.fcRazemki:
+			DictConsts.Factions.fcRazemki:
 				curr_target = body
 				curr_action = NpcActions.acFollow

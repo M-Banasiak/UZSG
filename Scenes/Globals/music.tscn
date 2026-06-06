@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://blc5lnxgv8xvy"]
+[gd_scene format=3 uid="uid://blc5lnxgv8xvy"]
 
 [ext_resource type="AudioStream" uid="uid://c1oyflyf1dhx2" path="res://Res/Music/Międzynarodówka - Internationale - Polskie napisy.mp3" id="1_ph252"]
 [ext_resource type="AudioStream" uid="uid://ca67pu1l45n5c" path="res://Res/Music/ATOM I SERCE by RazemDuo.mp3" id="2_73s0w"]
 
-[node name="Music" type="Node"]
+[node name="Music" type="Node" unique_id=1907562411]
 
-[node name="MusicMiedzynar" type="AudioStreamPlayer2D" parent="."]
+[node name="MusicMiedzynar" type="AudioStreamPlayer2D" parent="." unique_id=1440367313]
 stream = ExtResource("1_ph252")
+volume_db = -71.314
 parameters/looping = true
 
-[node name="MusicAtom" type="AudioStreamPlayer2D" parent="."]
+[node name="MusicAtom" type="AudioStreamPlayer2D" parent="." unique_id=343678797]
 stream = ExtResource("2_73s0w")
+volume_db = -72.057
 parameters/looping = true

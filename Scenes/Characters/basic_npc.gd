@@ -3,7 +3,7 @@ class_name NPCBasicBehavior
 
 enum NpcActions {acFollow, acGoto, acPatrol}
 
-@export var faction: CurrentGameState.Factions
+@export var faction:  DictConsts.Factions
 @export var curr_target: Node2D
 var curr_target_pos: Vector2
 var curr_action: NpcActions
@@ -43,7 +43,8 @@ func _process(_delta: float) -> void:
 func follow_object():
 	direction = Vector2(curr_target.global_position - global_position).normalized()
 	velocity = direction * speed
-	move_and_slide()
+	if speed > 0:
+		move_and_slide()
 
 
 func patrol_random() -> void:
@@ -69,14 +70,21 @@ func patrol_random() -> void:
 		#else:
 	direction = Vector2(curr_target_pos - global_position).normalized()
 	velocity = direction * speed
-	move_and_slide()
+	if speed > 0: 
+		move_and_slide()
 		
 
-func hit(body: Node2D) -> void:
-	print("Basic Dostałem od: " + body.name)
+func hit(_body: Node2D) -> void:
+	pass#print("Basic Dostałem od: " + body.name)
+	
+func hit_alt(_hit_data: Dictionary) -> void:
+	pass #print(str(self.name) + " hit by: " + str(DictConsts.faction_dict[hit_data[DictConsts.HitData.htFaction]]))
 
-func get_faction() -> CurrentGameState.Factions:
+func get_faction() -> DictConsts.Factions:
 	return faction
+	
+func get_type() -> DictConsts.ObjectType:
+	return DictConsts.ObjectType.otNpc
 
 #jeśli akcja trwa za długo
 func _on_action_timer_timeout() -> void:
