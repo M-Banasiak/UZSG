@@ -44,7 +44,7 @@ func create_bullet(bullet_data: Dictionary) -> void:  #bullet_data zamienić na 
 	bullet.rotation_degrees = rad_to_deg(bullet_data[DictConsts.HitData.htDirection].angle()) + 0   #zamiast robić to przeliczenie mogę od razu przekazywać kąt 
 	bullet.direction = bullet_data[DictConsts.HitData.htDirection]
 	bullet.my_shooter = $Player
-	bullet.hit_info = bullet_data
+	bullet.hit_info = bullet_data.duplicate()
 	$Projectiles.add_child(bullet)
 	
 func _on_create_character(pos: Vector2, faction: DictConsts.Factions) -> void:
