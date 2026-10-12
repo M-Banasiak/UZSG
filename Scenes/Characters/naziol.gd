@@ -18,10 +18,10 @@ func _process(_delta: float) -> void:
 			var fac: DictConsts.Factions
 			if "get_faction" in body:		
 				fac = body.get_faction()		
-				if "hit" in body && fac == CurrentGameState.Factions.fcRazemki:				
+				if "hit" in body && fac == DictConsts.Factions.fcRazemki:				
 					var pos: Vector2 = body.global_position
 					body.queue_free()
-					character_spawned.emit(pos, CurrentGameState.Factions.fcNaziole)
+					character_spawned.emit(pos, DictConsts.Factions.fcNaziole)
 				
 
 func hit(_body: Node2D) -> void:

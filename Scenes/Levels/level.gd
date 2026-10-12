@@ -49,16 +49,16 @@ func create_bullet(bullet_data: Dictionary) -> void:  #bullet_data zamienić na 
 	
 func _on_create_character(pos: Vector2, faction: DictConsts.Factions) -> void:
 	match faction:
-		CurrentGameState.Factions.fcRazemki:
+		DictConsts.Factions.fcRazemki:
 			var new_npc: Razemek = razem_guy.instantiate()
 			new_npc.position = pos
 			new_npc.curr_target = $ActiveObjects/NuclearPowerPlant
 			$RazemGuys.add_child(new_npc)
-		CurrentGameState.Factions.fcLibki:
+		DictConsts.Factions.fcLibki:
 			var new_npc: Libek = lib_guy.instantiate()
 			new_npc.position = pos
 			$Enemies.add_child(new_npc)
-		CurrentGameState.Factions.fcNaziole:
+		DictConsts.Factions.fcNaziole:
 			var new_npc: Naziol = nazi_guy.instantiate()
 			new_npc.position = pos
 			$Enemies.add_child(new_npc)

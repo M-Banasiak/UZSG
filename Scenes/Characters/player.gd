@@ -38,7 +38,9 @@ func _process(_delta: float) -> void:
 		#jak wprowadzimy animacje to wyemitowanie sygnału do wygenerowania kuli przeniesiemy na common_gun
 		#choć pewnie trza będzie dynamicznie podłączyć, bo z poziomu level, signal z gun jest niewidoczny		
 		if look_direction == eDirection.ldLeft:
-			bullet_data[1].x *= -1
+			var dir: Vector2 = bullet_data[DictConsts.HitData.htDirection]
+			dir.x *= -1
+			bullet_data[DictConsts.HitData.htDirection] = dir
 		gun_fired.emit(bullet_data)
 
 func get_faction() -> DictConsts.Factions:

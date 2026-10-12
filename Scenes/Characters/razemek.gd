@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 			if body == curr_target:
 				#print("doszedłem do elektrowni, czas umierać")
 				if "npc_collided" in body:
-					body.npc_collided(CurrentGameState.Factions.fcRazemki)
+					body.npc_collided(DictConsts.Factions.fcRazemki)
 				queue_free()
 	
 
@@ -34,7 +34,7 @@ func hit(body: Node2D) -> void:
 	if "get_faction" in body:
 		var fac = body.get_faction()
 		match fac:
-			CurrentGameState.Factions.fcLibki:
+			DictConsts.Factions.fcLibki:
 				queue_free()
 			_:
 				print("Adrian, uważaj!")
