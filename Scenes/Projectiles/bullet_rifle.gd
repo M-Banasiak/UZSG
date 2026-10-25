@@ -42,9 +42,10 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	#var hit_log: String
 	#hit_log = str(body.name)
-	print(body)
+	print("on_entered: " + str(body))
 	if hit_info.has(DictConsts.HitData.htTarget):
-		print(hit_info[DictConsts.HitData.htTarget]) 
+		#var tt: String = hit_info[DictConsts.HitData.htTarget]
+		print("bullet.gd: " + str(hit_info[DictConsts.HitData.htTarget])) 
 	else:
 		print("Pusto")
 		

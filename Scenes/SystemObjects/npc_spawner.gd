@@ -63,7 +63,7 @@ func spawn_screenedge() -> void:
 		spawn_pos = Vector2(w + 1, randi_range(0, h))
 	elif  side == Sides.sTop:
 		spawn_pos = Vector2(randi_range(0, w), -1)
-	elif  side == Sides.sRight:
+	elif  side == Sides.sBottom:
 		spawn_pos = Vector2(randi_range(0, w), h + 1)
 		
 	var faction: DictConsts.Factions = available_factions[randi() % available_factions.size()]

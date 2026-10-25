@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="UZSG"
 run/main_scene="uid://cf6k7dj8qw5qq"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
 
@@ -27,6 +27,7 @@ UiConstants="*res://Scripts/UI/ui_constants.gd"
 CurrentGameState="*res://Scripts/Globals/current_game_state.gd"
 Music="*res://Scenes/Globals/music.tscn"
 DictConsts="*uid://wsmjfmqiu0t8"
+MCPRuntimeServer="*res://addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd"
 
 [display]
 
@@ -41,6 +42,10 @@ window/stretch/scale_mode="integer"
 [dotnet]
 
 project/assembly_name="UZG"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_mcp_toolkit/plugin.cfg")
 
 [global]
 
