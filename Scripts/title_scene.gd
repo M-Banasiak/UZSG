@@ -6,7 +6,7 @@ var bg_sound: AudioStreamPlayer2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var viewport: Window = get_tree().root
-	print(viewport.size)
+	#print(viewport.size)
 	#viewport.size = (Vector2(1920,1080))
 	CurrentGameState.IsStartScreen = true;
 	CurrentGameState.GameIsLoaded = false;

@@ -3,12 +3,25 @@
 [ext_resource type="PackedScene" uid="uid://bwgcwaaxqoscw" path="res://Scenes/Characters/basic_npc.tscn" id="1_g8f5r"]
 [ext_resource type="Texture2D" uid="uid://dwlp1jsx1fs4t" path="res://Res/Graphics/Characters/Naziol.png" id="2_4ysr3"]
 [ext_resource type="Script" uid="uid://bt83mwtqql6j" path="res://Scenes/Characters/naziol.gd" id="2_6kw0j"]
+[ext_resource type="PackedScene" uid="uid://c7y1fqra6oai" path="res://Scenes/Items/adi_gun.tscn" id="3_adigun"]
 
 [node name="Naziol" unique_id=644444874 instance=ExtResource("1_g8f5r")]
 script = ExtResource("2_6kw0j")
 faction = 2
+patrol_speed = 30
+attack_speed = 40
 
 [node name="Sprite2D" parent="." index="0" unique_id=526665178]
 texture = ExtResource("2_4ysr3")
 
+[node name="Weapons" type="Node2D" parent="."]
+
+[node name="AdiGun" parent="Weapons" instance=ExtResource("3_adigun")]
+position = Vector2(2, 2)
+scale = Vector2(0.36, 0.36)
+
+[node name="ShootTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="NotifyNPCArea" to="." method="_on_notify_npc_area_body_entered"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

@@ -10,4 +10,4 @@ func _process(_delta: float) -> void:
 	pass
 	
 func hit(body: Node2D) -> void:
-	print("Jestem basic NPC a dostałem od: " + body.name)
+	pass #print("Jestem basic NPC a dostałem od: " + body.name)

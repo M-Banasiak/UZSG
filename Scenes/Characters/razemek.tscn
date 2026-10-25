@@ -5,5 +5,6 @@
 
 [node name="Razemek" groups=["Razemki"] instance=ExtResource("1_kyt7a")]
 script = ExtResource("2_17vj3")
+faction = 0
 patrol_speed = 30
 attack_speed = 30

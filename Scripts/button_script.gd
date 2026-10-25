@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func _make_custom_tooltip(for_text:String)->Control:	
 	if ToolTipSet == false:
-		print(self.name + " tooltip not set")
+		pass #print(self.name + " tooltip not set")
 	ToolTip = UiConstants.BasicToolTip.instantiate()
 	if CurrentGameState.IsStartScreen == true:
 		ToolTip.text = for_text

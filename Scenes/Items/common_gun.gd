@@ -2,6 +2,9 @@ extends StaticBody2D
 
 @export var damage: int
 @export var penetration: int
+@export var max_turn_speed: float = 90.0 #maksymalna prędkość obrotu broni NPC (stopnie/s)
+
+const AIMED_TOLERANCE: float = 0.01 #rad, różnica kąta uznawana za wycelowanie
 
 var parent_node: Node
 var item_owner: Node
@@ -46,6 +49,19 @@ func _physics_process(_delta):
 		query.collision_mask = 0b1001 #tylko collision layer 1. 0b1001 dla 1 i 4 https://docs.godotengine.org/en/4.6/tutorials/physics/physics_introduction.html#collision-layers-and-masks
 		mouse_hit_data = space_state.intersect_point(query)
 		
+
+#celowanie dla NPC (broń gracza celuje za myszką w _process)
+#obraca broń w stronę celu najwyżej o max_turn_speed; zwraca true, gdy broń jest wycelowana
+func turn_towards(target_pos: Vector2, delta: float) -> bool:
+	var target_angle: float = (target_pos - global_position).angle()
+	global_rotation = rotate_toward(global_rotation, target_angle, deg_to_rad(max_turn_speed) * delta)
+	#przy lufie skierowanej w lewo odwracamy broń w pionie, żeby nie była do góry nogami
+	if cos(global_rotation) < 0:
+		scale.y = -absf(scale.y)
+	else:
+		scale.y = absf(scale.y)
+	gun_direction = Vector2.RIGHT.rotated(global_rotation)
+	return absf(angle_difference(global_rotation, target_angle)) < AIMED_TOLERANCE
 
 func accumulate_hits() -> Array[Object]:
 	var hit_objects: Array[Object]

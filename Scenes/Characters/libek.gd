@@ -23,6 +23,10 @@ func _process(_delta: float) -> void:
 func hit(_body: Node2D) -> void:
 	queue_free()
 
+#trafienie kulą - na razie bez punktów życia i pancerza, jedno trafienie usuwa
+func hit_alt(_hit_data: Dictionary) -> void:
+	queue_free()
+
 
 func _on_notify_npc_area_body_entered(body: Node2D) -> void:
 	if ("get_faction" in body) && (curr_target == null):

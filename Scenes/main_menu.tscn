@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b51k5pu47ayys" path="res://Scenes/UI/btn_with_base_tooltip.tscn" id="3_1ehe0"]
 
 [node name="MainMenu" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_m1gix")
 
 [node name="BackGround" type="ColorRect" parent="."]
@@ -33,41 +34,92 @@ theme = ExtResource("1_ugr05")
 
 [node name="BtnNew" parent="MainMenu/MenuItems" instance=ExtResource("3_1ehe0")]
 layout_mode = 2
-tooltip_text = "Rozpocznij nową rozgrywkę"
+tooltip_text = "MENU_NEW_TIP"
 focus_neighbor_top = NodePath("")
-text = "Nowa gra"
+text = "MENU_NEW"
 
 [node name="BtnContinue" parent="MainMenu/MenuItems" instance=ExtResource("3_1ehe0")]
 layout_mode = 2
-tooltip_text = "Wczytaj najnowszy zapis"
+tooltip_text = "MENU_CONTINUE_TIP"
 focus_neighbor_top = NodePath("")
-text = "Kontynuuj"
+text = "MENU_CONTINUE"
 
 [node name="BtnSave" parent="MainMenu/MenuItems" instance=ExtResource("3_1ehe0")]
 layout_mode = 2
-tooltip_text = "Zapisz rozgrywkę"
+tooltip_text = "MENU_SAVE_TIP"
 focus_neighbor_top = NodePath("")
-text = "Zapisz"
+text = "MENU_SAVE"
 
 [node name="BtnLoad" parent="MainMenu/MenuItems" instance=ExtResource("3_1ehe0")]
 layout_mode = 2
-tooltip_text = "Wczytaj zapisaną rozgrywkę"
+tooltip_text = "MENU_LOAD_TIP"
 focus_neighbor_top = NodePath("")
-text = "Wczytaj"
+text = "MENU_LOAD"
 
 [node name="BtnOptions" parent="MainMenu/MenuItems" instance=ExtResource("3_1ehe0")]
 layout_mode = 2
-tooltip_text = "Zmień ustawienia gry"
+tooltip_text = "MENU_OPTIONS_TIP"
 focus_neighbor_top = NodePath("")
-text = "Opcje"
+text = "MENU_OPTIONS"
+
+[node name="BtnLanguage" parent="MainMenu/MenuItems" instance=ExtResource("3_1ehe0")]
+layout_mode = 2
+tooltip_text = "MENU_LANGUAGE_TIP"
+focus_neighbor_top = NodePath("")
+text = "MENU_LANGUAGE"
 
 [node name="BtnQuit" parent="MainMenu/MenuItems" instance=ExtResource("3_1ehe0")]
 layout_mode = 2
-tooltip_text = "Zamknij grę"
+tooltip_text = "MENU_QUIT_TIP"
 focus_neighbor_top = NodePath("")
-text = "Wyjdź"
+text = "MENU_QUIT"
+
+[node name="SavedPopup" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ugr05")
+
+[node name="Panel" type="PanelContainer" parent="SavedPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="SavedPopup/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="Items" type="VBoxContainer" parent="SavedPopup/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="SavedPopup/Panel/Margin/Items"]
+layout_mode = 2
+text = "MENU_SAVED"
+horizontal_alignment = 1
+
+[node name="BtnOk" type="Button" parent="SavedPopup/Panel/Margin/Items"]
+layout_mode = 2
+text = "MENU_OK"
 
 [connection signal="mainmenu_game_quit" from="." to="." method="_on_mainmenu_game_quit"]
 [connection signal="mainmenu_new_game" from="." to="." method="_on_mainmenu_new_game"]
 [connection signal="pressed" from="MainMenu/MenuItems/BtnNew" to="." method="_on_btn_new_pressed"]
 [connection signal="pressed" from="MainMenu/MenuItems/BtnQuit" to="." method="_on_btn_quit_pressed"]
+[connection signal="pressed" from="MainMenu/MenuItems/BtnContinue" to="." method="_on_btn_continue_pressed"]
+[connection signal="pressed" from="MainMenu/MenuItems/BtnSave" to="." method="_on_btn_save_pressed"]
+[connection signal="pressed" from="MainMenu/MenuItems/BtnLoad" to="." method="_on_btn_load_pressed"]
+[connection signal="pressed" from="MainMenu/MenuItems/BtnLanguage" to="." method="_on_btn_language_pressed"]
+[connection signal="pressed" from="SavedPopup/Panel/Margin/Items/BtnOk" to="." method="_on_saved_popup_ok_pressed"]

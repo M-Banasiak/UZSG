@@ -1,0 +1,23 @@
+keys,pl,en
+MENU_NEW,Nowa gra,New game
+MENU_NEW_TIP,Rozpocznij nową rozgrywkę,Start a new game
+MENU_CONTINUE,Kontynuuj,Continue
+MENU_CONTINUE_TIP,Wczytaj najnowszy zapis,Load the latest save
+MENU_RESUME_TIP,Wróć do gry,Resume the game
+MENU_SAVE,Zapisz,Save
+MENU_SAVE_TIP,Zapisz rozgrywkę,Save the game
+MENU_LOAD,Wczytaj,Load
+MENU_LOAD_TIP,Wczytaj zapisaną rozgrywkę,Load a saved game
+MENU_OPTIONS,Opcje,Options
+MENU_OPTIONS_TIP,Zmień ustawienia gry,Change game settings
+MENU_LANGUAGE,English,Polski
+MENU_LANGUAGE_TIP,Zmień język na angielski,Change language to Polish
+MENU_QUIT,Wyjdź,Quit
+MENU_QUIT_TIP,Zamknij grę,Quit the game
+MENU_QUIT_TO_TITLE_TIP,Wyjdź do menu,Quit to menu
+HUD_SCORE,Uratowani pracownicy,Rescued workers
+HUD_FIRE_MODE,Tryb ognia,Fire mode
+FIRE_MODE_SEMI,Pojedynczy,Single
+FIRE_MODE_AUTO,Ciągły,Auto
+MENU_SAVED,Zapisano grę,Game saved
+MENU_OK,OK,OK

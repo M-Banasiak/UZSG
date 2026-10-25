@@ -37,5 +37,9 @@ func hit(body: Node2D) -> void:
 			DictConsts.Factions.fcLibki:
 				queue_free()
 			_:
-				print("Adrian, uważaj!")
-	
+				pass #print("Adrian, uważaj!")
+
+#kule gracza nie działają na Razemków, kule innych frakcji (Naziole) usuwają
+func hit_alt(hit_data: Dictionary) -> void:
+	if hit_data.get(DictConsts.HitData.htFaction, DictConsts.Factions.fcPlayer) != DictConsts.Factions.fcPlayer:
+		queue_free()

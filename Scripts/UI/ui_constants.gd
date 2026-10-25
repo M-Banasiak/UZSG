@@ -11,7 +11,7 @@ var SbToolTip = StyleBoxFlat.new()
 var ToolTipBgColor: Color = Color8(255,0,0,230)  #Color8(33,33,33,230)
 
 func _ready() -> void:
-	print("Setting graphic styles")
+	#print("Setting graphic styles")
 	SbToolTip.set_bg_color(ToolTipBgColor)
 	SbToolTip.set_border_width_all(0)
 	SbToolTip.set_corner_radius_all(2)
